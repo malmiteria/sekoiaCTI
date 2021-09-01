@@ -1,7 +1,6 @@
 import csv
 import sys
 import getopt
-import datetime
 import certstream
 from french_bank_keywords import KEYWORDS as bank_keywords
 
