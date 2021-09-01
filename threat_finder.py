@@ -39,7 +39,7 @@ class ThreatFinder:
             csv_file = csv.writer(f, delimiter=';')
             csv_file.writerow([domain, keywords_list])
 
-    def print_callback(self, message, context):
+    def report_all_threats(self, message, context):
         for domain, keywords in self.all_cert_with_keywords(message):
             if domain not in self.known_safe_domain:
                 self.threat_reports(domain, keywords)
@@ -60,4 +60,4 @@ def parse_command(argv):
 
 if __name__ == "__main__":
     tf = ThreatFinder(*parse_command(sys.argv[1:]))
-    certstream.listen_for_events(tf.print_callback, url='wss://certstream.calidog.io/')
+    certstream.listen_for_events(tf.report_all_threats, url='wss://certstream.calidog.io/')
