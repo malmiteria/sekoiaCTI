@@ -6,4 +6,4 @@ install-virtualenv:
 	local.virtualenv\Scripts\pip install -r requirements.txt --find-links "file://${HOME}/.pip/wheelhouse"
 
 run:
-	local.virtualenv\Scripts\python -m threat_finder.py
+	local.virtualenv\Scripts\python -u -m threat_finder
