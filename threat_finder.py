@@ -13,16 +13,20 @@ def all_cert_update_domains(message):
     if message['message_type'] == "certificate_update":
         yield from message['data']['leaf_cert']['all_domains']
 
+def all_keywords_in_domain(domain):
+    for keyword in bank_keywords:
+        if keyword in domain:
+            yield keyword
+
 def all_cert_with_keyword(message):
     for domain in all_cert_update_domains(message):
-        for keyword in bank_keywords:
-            if keyword in domain:
-                yield keyword, domain
+        if len(keywords := list(all_keywords_in_domain(domain))):
+            yield domain, keywords
 
 def print_callback(message, context):
-    for keyword, domain in all_cert_with_keyword(message):
+    for domain, keywords in all_cert_with_keyword(message):
         if domain not in known_safe_domain:
-            sys.stdout.write(keyword + "=====" + domain + '\n')
+            sys.stdout.write(", ".join(keywords) + "=====" + domain + '\n')
             #sys.stdout.write(u"{} ==== [{}] {} (SAN: {})\n".format(keyword, datetime.datetime.now().strftime('%m/%d/%y %H:%M:%S'), domain, ", ".join(message['data']['leaf_cert']['all_domains'][1:])))
             sys.stdout.flush()
 
