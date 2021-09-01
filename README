@@ -1,0 +1,23 @@
+
+
+
+made on windows
+python 3.8.10
+
+to install the dependancies :
+make install-virtualenv
+
+to enter the virtualenv :
+local.vifrtualenv/Scripts/activate
+
+to run the script :
+python threat_finder.py
+
+command options are:
+ -> -v or --verbose to print the domains name being considered
+threats to the console
+ -> -n or --no-file to not write the identified threats in a file
+ -> -f or --filename to choose the identified threats filename
+
+can be used for a quick debug as follow :
+python threat_finder.py -v -n
