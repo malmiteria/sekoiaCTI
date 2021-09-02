@@ -1,5 +1,6 @@
 __pycache__
 threats
+top-1m.csv
 *.swp
 *.swo
 *.pyc
