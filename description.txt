@@ -1,0 +1,29 @@
+
+
+
+L'objectif de ce programme est d'identifier les sites web malveillant, ou
+potentiellement malveillant.
+
+L'identification des sites potentiellement malveillant se fait par mot clés.
+Les sites identifiés peuvent être enregistrer dans un fichier, associé au mot
+clé(s) reconnu, ainsi que simplement afficher en console.
+
+La source utilisé pour decouvrir les sites créé est "CertStream Cali Dog
+Security", le reste du programme se contente de filtrer les données fournies
+par cette source pour indentifier les potentiels sites malveillant.
+
+Il y a un risque de faux positif assez élevé, qui vient de la liste de mots
+clés utilisé. Certain sont trop court, ou peu spécifique, et apparraissent
+donc parfois dans des noms de domaines a priori non pertinent.
+
+La liste des mot clé a été établie grace a un site référencant les différents
+termes technique bancaire classique. La qualité du résultat est assez liée a
+la qualité de cette liste de mots clés.
+J'ai préféré de nombreux faux positifs, plutot que de passer a coté de
+quelques sites malveillant.
+
+Enfin, on considère non malveillant tout site reconnu par l'annuaire des site
+webs connu "Alexa top 1m sites". Cette liste est téléchargée automatiquement
+au lancement du programme pour garantir qu'elle est à jour.
+
+
